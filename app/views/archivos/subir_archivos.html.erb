@@ -1,0 +1,13 @@
+<h1>Servidor imagenes</h1>
+<p></p>
+<h2> Subir imagen </h2>
+<%= form_tag({:controller => "archivos", :action => "subir_archivos"}, :method => "post", :multipart => true) do %>
+   <%= file_field_tag "archivo", :required => "required" %>
+   <%= submit_tag "Subir imagen" %>
+<% end %>
+<% if @formato_erroneo %>
+  <div>
+     <p> Formato incorrecto. Compruebe que la extension es: .bmp, .gif, .jpeg, .jpg y .png </p>
+  </div>
+<% end %>
+<p> <%= link_to "Volver al listado de imagenes", :controller => "archivos", :action => "listar_archivos" %> </p>
